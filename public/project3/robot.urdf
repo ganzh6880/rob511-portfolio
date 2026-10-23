@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot name="one_inch_fk">
+  <link name="base"><visual><origin xyz="0 0 0.96"/><geometry><box size="0.24 0.44 0.18"/></geometry><material><color rgba="0.07 0.08 0.09 1"/></material></visual></link>
+  <link name="left_leg"><visual><geometry><box size="0.18 0.18 0.82"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <link name="right_leg"><visual><geometry><box size="0.18 0.18 0.82"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <link name="left_foot"><visual><geometry><box size="0.34 0.22 0.14"/></geometry><material><color rgba="0.07 0.08 0.09 1"/></material></visual></link>
+  <link name="right_foot"><visual><geometry><box size="0.34 0.22 0.14"/></geometry><material><color rgba="0.07 0.08 0.09 1"/></material></visual></link>
+  <joint name="left_leg_mount" type="fixed"><parent link="base"/><child link="left_leg"/><origin xyz="0 0.20 0.52"/></joint>
+  <joint name="right_leg_mount" type="fixed"><parent link="base"/><child link="right_leg"/><origin xyz="0 -0.20 0.52"/></joint>
+  <joint name="left_foot_mount" type="fixed"><parent link="base"/><child link="left_foot"/><origin xyz="0.07 0.20 0.08"/></joint>
+  <joint name="right_foot_mount" type="fixed"><parent link="base"/><child link="right_foot"/><origin xyz="0.07 -0.20 0.08"/></joint>
+  <link name="waist"/>
+  <joint name="waist_yaw" type="revolute"><parent link="base"/><child link="waist"/><origin xyz="0 0 1.03"/><axis xyz="0 0 1"/><limit lower="-0.5" upper="0.5"/></joint>
+  <link name="torso"><visual><origin xyz="0 0 0.25"/><geometry><box size="0.27 0.49 0.50"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="waist_bow" type="revolute"><parent link="waist"/><child link="torso"/><axis xyz="0 1 0"/><limit lower="-0.15" upper="0.35"/></joint>
+  <link name="head"><visual><geometry><sphere radius="0.15"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="head_yaw" type="revolute"><parent link="torso"/><child link="head"/><origin xyz="0 0 0.69"/><axis xyz="0 0 1"/><limit lower="-0.6" upper="0.6"/></joint>
+  <link name="left_shoulder"/>
+  <joint name="left_pitch" type="revolute"><parent link="torso"/><child link="left_shoulder"/><origin xyz="0 0.33 0.46"/><axis xyz="0 1 0"/><limit lower="-1.8" upper="0.3"/></joint>
+  <link name="left_upper"><visual><origin xyz="0 0 -0.15"/><geometry><box size="0.16 0.16 0.30"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="left_roll" type="revolute"><parent link="left_shoulder"/><child link="left_upper"/><axis xyz="1 0 0"/><limit lower="-0.2" upper="0.8"/></joint>
+  <link name="left_forearm"><visual><origin xyz="0 0 -0.14"/><geometry><box size="0.14 0.14 0.28"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="left_elbow" type="revolute"><parent link="left_upper"/><child link="left_forearm"/><origin xyz="0 0 -0.32"/><axis xyz="0 1 0"/><limit lower="-2" upper="0"/></joint>
+  <link name="left_fist"><visual><geometry><box size="0.17 0.17 0.17"/></geometry><material><color rgba="0.07 0.08 0.09 1"/></material></visual></link>
+  <joint name="left_wrist_mount" type="fixed"><parent link="left_forearm"/><child link="left_fist"/><origin xyz="0 0 -0.32"/></joint>
+  <link name="right_shoulder"/>
+  <joint name="right_pitch" type="revolute"><parent link="torso"/><child link="right_shoulder"/><origin xyz="0 -0.33 0.46"/><axis xyz="0 1 0"/><limit lower="-1.8" upper="0.3"/></joint>
+  <link name="right_upper"><visual><origin xyz="0 0 -0.15"/><geometry><box size="0.16 0.16 0.30"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="right_roll" type="revolute"><parent link="right_shoulder"/><child link="right_upper"/><axis xyz="1 0 0"/><limit lower="-0.8" upper="0.2"/></joint>
+  <link name="right_forearm"><visual><origin xyz="0 0 -0.14"/><geometry><box size="0.14 0.14 0.28"/></geometry><material><color rgba="0.96 0.72 0.08 1"/></material></visual></link>
+  <joint name="right_elbow" type="revolute"><parent link="right_upper"/><child link="right_forearm"/><origin xyz="0 0 -0.32"/><axis xyz="0 1 0"/><limit lower="-2" upper="0"/></joint>
+  <link name="right_fist"><visual><geometry><box size="0.17 0.17 0.17"/></geometry><material><color rgba="0.07 0.08 0.09 1"/></material></visual></link>
+  <joint name="right_wrist_mount" type="fixed"><parent link="right_forearm"/><child link="right_fist"/><origin xyz="0 0 -0.32"/></joint>
+</robot>

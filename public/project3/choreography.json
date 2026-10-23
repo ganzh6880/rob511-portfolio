@@ -1,0 +1,23 @@
+{
+  "title": "Enter the Robot",
+  "epsilon": 0.012,
+  "jointNames": ["waist_yaw", "waist_bow", "head_yaw", "left_pitch", "left_roll", "left_elbow", "right_pitch", "right_roll", "right_elbow"],
+  "limits": [[-0.5,0.5],[-0.15,0.35],[-0.6,0.6],[-1.8,0.3],[-0.2,0.8],[-2,0],[-1.8,0.3],[-0.8,0.2],[-2,0]],
+  "states": [
+    {"name":"ready","label":"Stillness","target":[0,0,0,0,0.08,-0.1,0,-0.08,-0.1],"speed":1.2,"gain":6,"hold":0.5,"next":"opening_bow"},
+    {"name":"opening_bow","label":"First, respect","target":[0,0.24,0,0,0.08,-0.1,0,-0.08,-0.1],"speed":0.6,"gain":6,"hold":0.4,"next":"guard"},
+    {"name":"guard","label":"Find the guard","target":[0.12,0,-0.12,-0.95,0.16,-1.4,-0.8,-0.12,-1.55],"speed":1.7,"gain":8,"hold":0.5,"next":"invite"},
+    {"name":"invite","label":"Your move","target":[0.08,0,-0.08,-1.3,0.3,-0.45,-0.8,-0.12,-1.55],"speed":1.8,"gain":8,"hold":0.35,"next":"beckon"},
+    {"name":"beckon","label":"Come closer","target":[0.08,0,-0.08,-1.1,0.3,-1.45,-0.8,-0.12,-1.55],"speed":2.2,"gain":10,"hold":0.35,"next":"left_punch"},
+    {"name":"left_punch","label":"Left strike","target":[0.24,0,-0.2,-1.48,0.08,-0.12,-0.8,-0.12,-1.55],"speed":4.5,"gain":18,"hold":0.35,"next":"right_punch"},
+    {"name":"right_punch","label":"Right strike","target":[-0.24,0,0.2,-0.95,0.16,-1.4,-1.48,-0.08,-0.12],"speed":4.5,"gain":18,"hold":0.45,"next":"reset_guard"},
+    {"name":"reset_guard","label":"Find stillness","target":[0.12,0,-0.12,-0.95,0.16,-1.4,-0.8,-0.12,-1.55],"speed":1.8,"gain":8,"hold":0.7,"next":"measure"},
+    {"name":"measure","label":"Measure the distance","target":[0.07,0,-0.07,-0.95,0.16,-1.4,-1.2,-0.08,-0.6],"speed":0.75,"gain":5,"hold":1.5,"next":"draw"},
+    {"name":"draw","label":"A little space","target":[0.11,0,-0.11,-0.95,0.16,-1.4,-1.08,-0.08,-0.9],"speed":0.6,"gain":5,"hold":1.2,"next":"strike"},
+    {"name":"strike","label":"One short punch","target":[-0.04,0,0.04,-0.95,0.16,-1.4,-1.38,-0.08,-0.25],"speed":4.5,"gain":18,"hold":0.6,"next":"recover"},
+    {"name":"recover","label":"Return to guard","target":[0.12,0,-0.12,-0.95,0.16,-1.4,-0.8,-0.12,-1.55],"speed":1.8,"gain":8,"hold":0.5,"next":"settle"},
+    {"name":"settle","label":"Let it settle","target":[0,0,0,0,0.08,-0.1,0,-0.08,-0.1],"speed":1.5,"gain":7,"hold":0.3,"next":"bow"},
+    {"name":"bow","label":"Respect","target":[0,0.24,0,0,0.08,-0.1,0,-0.08,-0.1],"speed":0.4,"gain":5,"hold":1.0,"next":"finish"},
+    {"name":"finish","label":"Stillness","target":[0,0,0,0,0.08,-0.1,0,-0.08,-0.1],"speed":0.4,"gain":5,"hold":1.5,"next":null}
+  ]
+}

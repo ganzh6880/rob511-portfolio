@@ -1,0 +1,27 @@
+{
+  "name": "rob511-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "demo": "node demo/run.mjs --live",
+    "capture": "node demo/run.mjs --capture",
+    "test": "node --test demo/fsm.test.mjs",
+    "video": "node demo/render-video.mjs",
+    "verify": "node demo/verify-browser.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "lucide": "0.468.0",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "prettier": "^3.9.10",
+    "vite": "^8.3.5"
+  }
+}
